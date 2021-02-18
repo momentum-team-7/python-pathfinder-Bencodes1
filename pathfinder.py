@@ -22,10 +22,6 @@ def pathseeker(xy_array):
         print(test_cell)
 
 
-
-
-
-
 if __name__ == "__main__":
     import argparse
     from pathlib import Path
