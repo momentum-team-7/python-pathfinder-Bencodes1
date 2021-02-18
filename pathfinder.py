@@ -17,7 +17,7 @@ def extract_coords(file):
         pathpoints = pathmaker(xy_array) 
         imagemaster(xy_array, pathpoints)
 
-# Given original xy_array, generates topographical map by calling image subfunctions
+# Given original xy_array, generates topographical map with path by calling image subfunctions
 def imagemaster(xy_array, pathpoints):
     min_alt = int(min_and_max(xy_array)[0])
     max_alt = int(min_and_max(xy_array)[1])
@@ -71,6 +71,8 @@ def image_creator(xy_array, min_alt, increment):
     # img.save("tester.png")
     return img
 
+
+# Given topographic image and pathpoints list, draw path on image
 def path_drawer(img_prepath, pathpoints):
     # print(pathpoints)
     # print(pathpoints[0])
