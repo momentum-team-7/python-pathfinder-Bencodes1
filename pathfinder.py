@@ -12,14 +12,24 @@ def extract_coords(file):
 def pathseeker(xy_array):        
 
     y_start = int(input("Where would you like to start your journey? Enter a number from 1-600: "))-1
-    print(y_start)
     curr_cell = [0,y_start]
-    print(curr_cell)
+    print('****a****', curr_cell)
+
+    pathpoints = []
 
     for x in range(0, len(xy_array[0])): 
         test_cell = xy_array[y_start][x]
         # test_cell = xy_array[x][y_start]
-        print(test_cell)
+        print('****b****',test_cell)
+
+    while curr_cell[0] < len(xy_array[0])-2:
+        pathpoints += (curr_cell)
+        print('****c****', pathpoints)
+        curr_cell[0] += 1
+
+
+def pathchoose(curr_cell):
+    straight = curr_cell
 
 
 if __name__ == "__main__":
