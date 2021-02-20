@@ -1,4 +1,5 @@
 import random
+import time
 from PIL import Image, ImageColor
 from colour import Color
 
@@ -97,6 +98,7 @@ def gradient_hex(start_color):
 # Choose start color, call gradient_hex to get list of colors in range, convert to RGB with hex_to_RGB.
 # Returns initial image.
 def color_img_creator(xy_array, min_alt, increment):
+    start = time.time()
     start_color = "purple"
     RGB_list = gradient_hex(start_color)
     img = Image.new('RGB', (len(xy_array[0]), len(xy_array)))
@@ -106,6 +108,9 @@ def color_img_creator(xy_array, min_alt, increment):
             curr_colornum = int(alt_to_colornum(curr_ele, min_alt, increment))
             curr_RGB = ImageColor.getcolor(f"{RGB_list[curr_colornum - 1]}", "RGB")
             img.putpixel((pos, row), (curr_RGB))
+    stop = time.time()
+    color_timer = stop - start
+    print("Image complete. Time to draw: ", color_timer, "seconds")        
     return img
 
 
